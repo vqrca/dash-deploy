@@ -1,14 +1,6 @@
-runtime: python39  # Use a versão do Python compatível com a sua aplicação
+runtime: python311
 entrypoint: gunicorn -b :$PORT app:app
-
-env_variables:
-  PORT: 8080
 
 handlers:
 - url: /.*
-script: auto
-secure: always
-redirect_http_response_code: 301
-
-manual_scaling:
-  instances: 1  # Define o número de instâncias. Ajuste conforme necessário
+  script: auto
